@@ -19,3 +19,6 @@ flutter test
 ```
 
 No code change is complete without passing tests.
+
+### Git staging
+All new files that are an integral part of the app must be staged with `git add` as part of the change. Do not leave new app files untracked.
