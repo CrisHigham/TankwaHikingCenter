@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:thc/main.dart';
+import 'package:thc/pages/map_page.dart';
 
 void main() {
   testWidgets('home page renders title and body', (WidgetTester tester) async {
@@ -39,7 +40,7 @@ void main() {
     await tester.tap(find.text('Map'));
     await tester.pumpAndSettle();
 
-    expect(find.text('Map placeholder'), findsOneWidget);
+    expect(find.byType(MapPage), findsOneWidget);
     expect(find.byType(BackButton), findsNothing);
   });
 
