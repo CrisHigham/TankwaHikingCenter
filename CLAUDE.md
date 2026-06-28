@@ -3,6 +3,26 @@
 ## Project
 Flutter application for Tankwa Hiking Center (THC). Entry point: `lib/main.dart`.
 
+## Architecture
+
+**Target:** Android-first offline mobile app (iOS planned). No web target.
+
+**Stack:**
+- **MapLibre** (`maplibre_gl`) — map rendering engine. Do not replace with flutter_map.
+- **MBTiles** — pre-packaged offline vector/raster tile database for the fixed geographic area (Tankwa Karoo region).
+- **GeoJSON routes** — hiking routes converted from GPX at build time (not at runtime) and embedded as app assets.
+- **SQLite** — points of interest (POIs) and user-generated data.
+- **GPS sensor** — live location tracking.
+
+**Key constraint:** fully offline after installation. No runtime tile fetching, no internet dependency, no runtime GPX import.
+
+**Build-time data pipeline (developer machine only):**
+```
+GPX files → conversion script → GeoJSON + MBTiles + POI data → bundled into app assets
+```
+
+See `plan/plan.md` for the full architecture document.
+
 ## Rules
 
 ### README
